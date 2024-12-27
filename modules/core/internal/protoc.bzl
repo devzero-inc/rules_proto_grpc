@@ -45,10 +45,10 @@ def build_protoc_args(
     inputs = []
     input_manifests = []
 
-    if plugin.tool and resolve_tools:
-        plugin_runfiles, plugin_input_manifests = ctx.resolve_tools(tools = [plugin.tool])
-        inputs += plugin_runfiles.to_list()
-        input_manifests += plugin_input_manifests
+    # if plugin.tool and resolve_tools:
+    #     plugin_runfiles, plugin_input_manifests = ctx.resolve_tools(tools = [plugin.tool])
+    #     inputs += plugin_runfiles.to_list()
+    #     input_manifests += plugin_input_manifests
 
     inputs += plugin.data
 

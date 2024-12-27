@@ -1,6 +1,6 @@
 """Compilation rules definition for rules_proto_grpc."""
 
-load("@rules_proto//proto:defs.bzl", "ProtoInfo")
+load("@protobuf//bazel/common:proto_info.bzl", "ProtoInfo")
 load(
     "//internal:common.bzl",
     "copy_file",
@@ -105,7 +105,7 @@ def proto_compile(ctx, options, extra_protoc_args, extra_protoc_files):
     verbose = ctx.attr.verbose
 
     # Load toolchain and tools
-    protoc_toolchain_info = ctx.toolchains[str(Label("@rules_proto//proto:toolchain_type"))]
+    protoc_toolchain_info = ctx.toolchains[str(Label("@protobuf//bazel/private:proto_toolchain_type"))]
     protoc = protoc_toolchain_info.proto.proto_compiler.executable
     fixer = ctx.executable._fixer
 
